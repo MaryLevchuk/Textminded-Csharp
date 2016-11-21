@@ -11,23 +11,32 @@ using RestSharp;
 
 namespace Api
 {
-    public abstract class Requests
+    public abstract class Requests : Request
     {
-        public IRestClient Client = new RestClient("http://api.testrdb.arla.com");
-        public RecipeTranslation Translation = new RecipeTranslation();
-
+        //public IRestClient Client = new RestClient("http://api.testrdb.arla.com");
+        public RecipeTranslation Translation;
+        public IngredientTranslation IngredientTranslation;
 
         protected Requests()
         {
             var response = GetAllRecipesToTranslate();
-            Translation = Translation.GetDataFromResponse(response);
-        }
+            Translation = GetDataFromResponse(response);
 
-        public void SetHeaders(IRestRequest r)
-        {
-            r.AddHeader("auth-apikey", ConfigurationManager.AppSettings["auth-apikey"]);
-            r.AddHeader("Content-Type", "application/json");
+
         }
+        //public RecipeTranslation GetDataFromResponse(IRestResponse r)
+        //{
+        //    dynamic obj = JsonConvert.DeserializeObject(r.Content) as JArray;
+        //    string firstRecipe = obj.First.TranslationRecipe.ToString();
+        //    RecipeTranslation translation = JsonConvert.DeserializeObject<RecipeTranslation>(firstRecipe);
+        //    return translation;
+        //}
+
+        //public void SetHeaders(IRestRequest r)
+        //{
+        //    r.AddHeader("auth-apikey", ConfigurationManager.AppSettings["auth-apikey"]);
+        //    r.AddHeader("Content-Type", "application/json");
+        //}
 
         public void SetRequestBody(IRestRequest r)
         {

@@ -25,9 +25,6 @@ namespace Api
         public JArray Tips { get; set; }
         public string TasteSignature { get; set; }
 
-
-
-
         public RecipeTranslation GetDataFromResponse(IRestResponse r)
         {
             dynamic obj = JsonConvert.DeserializeObject(r.Content) as JArray;
@@ -35,6 +32,9 @@ namespace Api
             RecipeTranslation translation = JsonConvert.DeserializeObject<RecipeTranslation>(firstRecipe);
             return translation;
         }
+
+
+
 
 
 

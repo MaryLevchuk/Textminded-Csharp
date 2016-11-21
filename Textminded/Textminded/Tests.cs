@@ -33,7 +33,7 @@ namespace Textminded
         public void Update_RecipeTranslation()
         {
             var response = UpdateRecipe();
-            Console.WriteLine("response = {0}", response.Content);
+            //Console.WriteLine("response = {0}", response.Content);
             int code = (int)response.StatusCode;
             code.Should().BeGreaterOrEqualTo(200);
         }
