@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!--This file represents the results of running a test suite-->
-<test-results name="K:\Source\textminded\Textminded\Textminded\bin\Debug\Textminded.dll" total="1" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2016-11-16" time="10:07:16">
+<test-results name="K:\Source\textminded\Textminded\Textminded\bin\Debug\Textminded.dll" total="1" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2016-11-17" time="15:06:05">
   <environment nunit-version="2.6.4.14350" clr-version="2.0.50727.8689" os-version="Microsoft Windows NT 6.2.9200.0" platform="Win32NT" cwd="C:\Program Files (x86)\NUnit 2.6.4\bin" machine-name="PC-MARYL" user="maria.levchuk" user-domain="CO" />
   <culture-info current-culture="en-US" current-uiculture="en-US" />
-  <test-suite type="Assembly" name="K:\Source\textminded\Textminded\Textminded\bin\Debug\Textminded.dll" executed="True" result="Success" success="True" time="1.911" asserts="0">
+  <test-suite type="Assembly" name="K:\Source\textminded\Textminded\Textminded\bin\Debug\Textminded.dll" executed="True" result="Success" success="True" time="2.249" asserts="0">
     <results>
-      <test-suite type="Namespace" name="Textminded" executed="True" result="Success" success="True" time="1.904" asserts="0">
+      <test-suite type="Namespace" name="Textminded" executed="True" result="Success" success="True" time="2.241" asserts="0">
         <results>
-          <test-suite type="TestFixture" name="Tests" executed="True" result="Success" success="True" time="1.903" asserts="0">
+          <test-suite type="TestFixture" name="Tests" executed="True" result="Success" success="True" time="2.240" asserts="0">
             <results>
-              <test-case name="Textminded.Tests.Get_RecipeToTranslateById_ReturnsStatusOK" executed="True" result="Success" success="True" time="0.163" asserts="0" />
+              <test-case name="Textminded.Tests.Update_RecipeTranslation" executed="True" result="Success" success="True" time="0.323" asserts="0" />
             </results>
           </test-suite>
         </results>

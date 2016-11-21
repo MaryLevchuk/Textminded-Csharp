@@ -26,4 +26,3 @@ K:\Source\textminded\Textminded\Settings\bin\Debug\WebDriver.Support.xml
 K:\Source\textminded\Textminded\Settings\obj\Debug\Settings.dll
 K:\Source\textminded\Textminded\Settings\obj\Debug\Settings.pdb
 K:\Source\textminded\Textminded\Settings\bin\Debug\RestSharp.dll
-K:\Source\textminded\Textminded\Settings\obj\Debug\Settings.csprojResolveAssemblyReference.cache

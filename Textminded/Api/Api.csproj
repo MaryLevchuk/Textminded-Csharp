@@ -48,10 +48,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="OriginalRecipe.cs" />
+    <Compile Include="Models\OriginalRecipe.cs" />
     <Compile Include="Requests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RecipeTranslation.cs" />
+    <Compile Include="Models\RecipeTranslation.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

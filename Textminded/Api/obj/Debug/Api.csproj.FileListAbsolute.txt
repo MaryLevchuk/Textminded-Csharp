@@ -5,4 +5,3 @@ K:\Source\textminded\Textminded\Api\obj\Debug\Api.dll
 K:\Source\textminded\Textminded\Api\obj\Debug\Api.pdb
 K:\Source\textminded\Textminded\Api\bin\Debug\Newtonsoft.Json.dll
 K:\Source\textminded\Textminded\Api\bin\Debug\Newtonsoft.Json.xml
-K:\Source\textminded\Textminded\Api\obj\Debug\Api.csprojResolveAssemblyReference.cache

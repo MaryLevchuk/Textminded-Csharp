@@ -16,10 +16,11 @@ namespace Api
         public IRestClient Client = new RestClient("http://api.testrdb.arla.com");
         public RecipeTranslation Translation = new RecipeTranslation();
 
+
         protected Requests()
         {
-            var r = GetAllRecipesToTranslate();
-            Translation.GetDataFromResponse(r);
+            var response = GetAllRecipesToTranslate();
+            Translation = Translation.GetDataFromResponse(response);
         }
 
         public void SetHeaders(IRestRequest r)
@@ -43,21 +44,24 @@ namespace Api
             return response;
         }
 
-       public IRestResponse GetRecipeToTranslateById(string recipeId)
+       public IRestResponse GetRecipeToTranslateById()
         {
-            string url = "foodservice-fi/translation/recipe/" + recipeId;
+            string url = "foodservice-fi/translation/recipe/" + Translation.Id;
+            Console.WriteLine(url);
             IRestRequest request = new RestRequest(url, Method.GET);
             SetHeaders(request);
             var response = Client.Execute(request);
             return response;
         }
 
-        public IRestResponse UpdateRecipe(RecipeTranslation translation, string recipeId)
+        public IRestResponse UpdateRecipe()
         {
-            string url = "foodservice-fi/translation/recipe/" + recipeId;
+            string url = "foodservice-fi/translation/recipe/" + Translation.Id;
             IRestRequest request = new RestRequest(url, Method.POST);
-            SetHeaders(request);
             SetRequestBody(request);
+            SetHeaders(request);
+            request.RequestFormat = DataFormat.Json;
+            
             var response = Client.Execute(request);
             return response;
         }
