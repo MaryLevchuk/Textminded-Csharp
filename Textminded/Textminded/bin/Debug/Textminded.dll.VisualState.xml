@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <VisualState xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ShowCheckBoxes="false">
-  <TopNode>[0-1002]K:\Source\textminded\Textminded\Textminded\bin\Debug\Textminded.dll</TopNode>
-  <SelectedNode>[0-1002]K:\Source\textminded\Textminded\Textminded\bin\Debug\Textminded.dll</SelectedNode>
+  <TopNode>[0-1005]K:\Source\textminded\Textminded\Textminded\bin\Debug\Textminded.dll</TopNode>
+  <SelectedNode>[0-1005]K:\Source\textminded\Textminded\Textminded\bin\Debug\Textminded.dll</SelectedNode>
   <ExcludeCategories>false</ExcludeCategories>
   <Nodes>
-    <Node UniqueName="[0-1002]K:\Source\textminded\Textminded\Textminded\bin\Debug\Textminded.dll" Expanded="true" />
-    <Node UniqueName="[0-1003]Textminded" Expanded="true" />
+    <Node UniqueName="[0-1005]K:\Source\textminded\Textminded\Textminded\bin\Debug\Textminded.dll" Expanded="true" />
+    <Node UniqueName="[0-1006]Textminded" Expanded="true" />
     <Node UniqueName="[0-1000]Textminded.Tests" Expanded="true" />
   </Nodes>
 </VisualState>

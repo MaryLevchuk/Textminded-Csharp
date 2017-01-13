@@ -7,36 +7,30 @@ using RestSharp;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace Api
+namespace Api.Models
 {
-    public class RecipeTranslation
+    public class RecipeTranslation 
     {
-        public string Id { get; set; }
-        public string TranslationStatus { get; set; }
-        public JArray IngredientGroups { get; set; }
-        public string ShortName { get; set; }
-        public string LongName { get; set; }
-        public string ShortPreamble { get; set; }
-        public JArray Tags { get; set; }
-        public JArray InstructionSections { get; set; }
-        public string NutritionSpecifiedPer { get; set; }
-        public string AmountInformation { get; set; }
-        public string RecommendedText { get; set; }
-        public JArray Tips { get; set; }
-        public string TasteSignature { get; set; }
+        public object Id { get; set; }
+        public object TranslationStatus { get; set; }
+        public object IngredientGroups { get; set; }
+        public object ShortName { get; set; }
+        public object LongName { get; set; }
+        public object ShortPreamble { get; set; }
+        public object Tags { get; set; }
+        public object InstructionSections { get; set; }
+        public object NutritionSpecifiedPer { get; set; }
+        public object AmountInformation { get; set; }
+        public object RecommendedText { get; set; }
+        public object Tips { get; set; }
+        public object TasteSignature { get; set; }
+
 
         public RecipeTranslation GetDataFromResponse(IRestResponse r)
         {
-            dynamic obj = JsonConvert.DeserializeObject(r.Content) as JArray;
-            string firstRecipe = obj.First.TranslationRecipe.ToString();
-            RecipeTranslation translation = JsonConvert.DeserializeObject<RecipeTranslation>(firstRecipe);
+            RecipeTranslation translation = JsonConvert.DeserializeObject<RecipeTranslation>(r.Content);
             return translation;
         }
-
-
-
-
-
 
     }
 }

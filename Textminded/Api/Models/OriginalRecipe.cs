@@ -25,6 +25,14 @@ namespace Api
         public string TasteSignature { get; set; }
         public string OriginalLanguage { get; }
         public string TranslationLanguage { get; }
-       
+
+        public OriginalRecipe GetDataFromResponse(IRestResponse r)
+        {
+            dynamic obj = JsonConvert.DeserializeObject(r.Content) as JArray;
+            string firstRecipe = obj.First.OriginalRecipe.ToString();
+            OriginalRecipe original = JsonConvert.DeserializeObject<OriginalRecipe>(firstRecipe);
+            return original;
+        }
+
     }
 }

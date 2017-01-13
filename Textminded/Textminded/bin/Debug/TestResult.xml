@@ -1,17 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!--This file represents the results of running a test suite-->
-<test-results name="K:\Source\textminded\Textminded\Textminded\bin\Debug\Textminded.dll" total="3" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2016-11-21" time="14:43:27">
+<test-results name="K:\Source\textminded\Textminded\Textminded\bin\Debug\Textminded.dll" total="3" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2016-12-23" time="18:28:12">
   <environment nunit-version="2.6.4.14350" clr-version="2.0.50727.8689" os-version="Microsoft Windows NT 6.2.9200.0" platform="Win32NT" cwd="C:\Program Files (x86)\NUnit 2.6.4\bin" machine-name="PC-MARYL" user="maria.levchuk" user-domain="CO" />
   <culture-info current-culture="en-US" current-uiculture="en-US" />
-  <test-suite type="Assembly" name="K:\Source\textminded\Textminded\Textminded\bin\Debug\Textminded.dll" executed="True" result="Success" success="True" time="5.995" asserts="0">
+  <test-suite type="Assembly" name="K:\Source\textminded\Textminded\Textminded\bin\Debug\Textminded.dll" executed="True" result="Success" success="True" time="2.226" asserts="0">
     <results>
-      <test-suite type="Namespace" name="Textminded" executed="True" result="Success" success="True" time="5.987" asserts="0">
+      <test-suite type="Namespace" name="Textminded" executed="True" result="Success" success="True" time="2.219" asserts="0">
         <results>
-          <test-suite type="TestFixture" name="Tests" executed="True" result="Success" success="True" time="5.986" asserts="0">
+          <test-suite type="TestFixture" name="RecipeTranslationTests" executed="True" result="Success" success="True" time="2.217" asserts="0">
             <results>
-              <test-case name="Textminded.Tests.Get_AllRecipesToTranslate_ReturnsStatusOK" executed="True" result="Success" success="True" time="0.951" asserts="0" />
-              <test-case name="Textminded.Tests.Get_RecipeToTranslateById_ReturnsStatusOK" executed="True" result="Success" success="True" time="0.134" asserts="0" />
-              <test-case name="Textminded.Tests.Update_RecipeTranslation" executed="True" result="Success" success="True" time="0.582" asserts="0" />
+              <test-suite type="ParameterizedTest" name="Get_RecipeToTranslateById_ReturnsStatusOK" executed="True" result="Success" success="True" time="0.231" asserts="0">
+                <results>
+                  <test-case name="Textminded.RecipeTranslationTests.Get_RecipeToTranslateById_ReturnsStatusOK&lt;Int32&gt;(123456789)" executed="True" result="Success" success="True" time="0.096" asserts="1">
+                    <categories>
+                      <category name="neg" />
+                    </categories>
+                  </test-case>
+                  <test-case name="Textminded.RecipeTranslationTests.Get_RecipeToTranslateById_ReturnsStatusOK&lt;Int64&gt;(12345678912L)" executed="True" result="Success" success="True" time="0.063" asserts="1">
+                    <categories>
+                      <category name="neg" />
+                    </categories>
+                  </test-case>
+                  <test-case name="Textminded.RecipeTranslationTests.Get_RecipeToTranslateById_ReturnsStatusOK&lt;String&gt;(&quot;abc&quot;)" executed="True" result="Success" success="True" time="0.063" asserts="1">
+                    <categories>
+                      <category name="neg" />
+                    </categories>
+                  </test-case>
+                </results>
+              </test-suite>
             </results>
           </test-suite>
         </results>

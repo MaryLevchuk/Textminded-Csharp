@@ -1,6 +1,5 @@
 K:\Source\textminded\Textminded\Textminded\bin\Debug\Textminded.dll
 K:\Source\textminded\Textminded\Textminded\bin\Debug\Textminded.pdb
-K:\Source\textminded\Textminded\Textminded\bin\Debug\Helpers.dll
 K:\Source\textminded\Textminded\Textminded\bin\Debug\nunit-console-runner.dll
 K:\Source\textminded\Textminded\Textminded\bin\Debug\nunit-gui-runner.dll
 K:\Source\textminded\Textminded\Textminded\bin\Debug\nunit.core.dll
@@ -11,12 +10,9 @@ K:\Source\textminded\Textminded\Textminded\bin\Debug\nunit.uiexception.dll
 K:\Source\textminded\Textminded\Textminded\bin\Debug\nunit.uikit.dll
 K:\Source\textminded\Textminded\Textminded\bin\Debug\nunit.util.dll
 K:\Source\textminded\Textminded\Textminded\bin\Debug\Selenium.WebDriverBackedSelenium.dll
-K:\Source\textminded\Textminded\Textminded\bin\Debug\Settings.dll
 K:\Source\textminded\Textminded\Textminded\bin\Debug\ThoughtWorks.Selenium.Core.dll
 K:\Source\textminded\Textminded\Textminded\bin\Debug\WebDriver.dll
 K:\Source\textminded\Textminded\Textminded\bin\Debug\WebDriver.Support.dll
-K:\Source\textminded\Textminded\Textminded\bin\Debug\Helpers.pdb
-K:\Source\textminded\Textminded\Textminded\bin\Debug\Settings.pdb
 K:\Source\textminded\Textminded\Textminded\bin\Debug\nunit.framework.xml
 K:\Source\textminded\Textminded\Textminded\bin\Debug\Selenium.WebDriverBackedSelenium.pdb
 K:\Source\textminded\Textminded\Textminded\bin\Debug\Selenium.WebDriverBackedSelenium.xml

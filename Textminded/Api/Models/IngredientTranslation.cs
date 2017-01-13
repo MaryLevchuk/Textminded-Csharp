@@ -7,7 +7,7 @@ using RestSharp;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace Api
+namespace Api.Models
 {
     public class IngredientTranslation
     {
@@ -15,6 +15,15 @@ namespace Api
         public string NameSingular { get; set; }
         public string NamePlural { get; set; }
         public JArray Tags { get; set; }
+
+        public IngredientTranslation GetDataFromResponse(IRestResponse r)
+        {
+            dynamic obj = JsonConvert.DeserializeObject(r.Content) as JArray;
+            string firstRecipe = obj.First.TranslationIngredient.ToString();
+            IngredientTranslation translation = JsonConvert.DeserializeObject<IngredientTranslation>(firstRecipe);
+            return translation;
+        }
+
     }
     
 }

@@ -38,6 +38,10 @@
       <HintPath>..\packages\FluentAssertions.4.17.0\lib\net45\FluentAssertions.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="nunit-console-runner">
       <HintPath>C:\Program Files (x86)\NUnit 2.6.4\bin\lib\nunit-console-runner.dll</HintPath>
     </Reference>
@@ -94,21 +98,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Tests.cs" />
+    <Compile Include="RecipeTranslationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Api\Api.csproj">
       <Project>{9fef248d-9c01-42a3-a4f9-435fe75cc5f0}</Project>
       <Name>Api</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Helpers\Helpers.csproj">
-      <Project>{28547a3d-0dc8-4dff-994d-2d7563b054f0}</Project>
-      <Name>Helpers</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Settings\Settings.csproj">
-      <Project>{abdd7b6d-70e2-41f7-a6bf-36360ccfd28a}</Project>
-      <Name>Settings</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
