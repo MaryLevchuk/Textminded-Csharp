@@ -16,13 +16,7 @@ namespace Textminded
     {
         RecipeRequest rRequest = new RecipeRequest();
         public RecipeTranslation Translation;
-
-        //public RecipeTranslationTests()
-        //{
-        //    Translation = rRequest.Translation;
-        //    Console.WriteLine();
-        //}
-
+        
         [Test]
         public void GetAllRecipesToTranslate_ReturnsStatusOK()
         {
@@ -42,18 +36,69 @@ namespace Textminded
         }
 
         [TestCase("TranslationStatus", 0, Result = 200, Category = "pos")]
+        [TestCase("TranslationStatus", null, Result = 200, Category = "neg")]
         [TestCase("TranslationStatus", 3, Result = 200, Category = "neg")]
         [TestCase("TranslationStatus", -1, Result = 200, Category = "neg")]
         [TestCase("TranslationStatus", 10, Result = 200, Category = "neg")]
+        [TestCase("TranslationStatus", "øæå", Result = 200, Category = "neg")]
+        [TestCase("TranslationStatus", "", Result = 200, Category = "neg")]
+
         [TestCase("ShortName", "Test recipe. Updated", Result = 200, Category = "pos")]
+        [TestCase("ShortName", "", Result = 200, Category = "pos")]
+        [TestCase("ShortName", 1000, Result = 200, Category = "neg")]
+        [TestCase("ShortName", null, Result = 200, Category = "neg")]
+
         [TestCase("LongName", "abracadabra", Result = 200, Category = "pos")]
+        [TestCase("LongName", "", Result = 200, Category = "pos")]
+        [TestCase("LongName", 10000000, Result = 200, Category = "neg")]
+        [TestCase("LongName", null, Result = 200, Category = "neg")]
+
         [TestCase("ShortPreamble", "abracadabra", Result = 200, Category = "pos")]
+        [TestCase("ShortPreamble", "", Result = 200, Category = "pos")]
+        [TestCase("ShortPreamble", 100, Result = 200, Category = "neg")]
+        [TestCase("ShortPreamble", null, Result = 200, Category = "neg")]
+
         [TestCase("Tags", "abracadabra", Result = 200, Category = "pos")]
-        [TestCase("LongName", 123, Result = 200)]
-        [TestCase("LongName", null, Result = 200)]
+        [TestCase("Tags", "", Result = 200, Category = "neg")]
+        [TestCase("Tags", null, Result = 200, Category = "neg")]
+
+        [TestCase("IngredientGroups", "Group1", Result = 200, Category = "pos")]
+        [TestCase("IngredientGroups", "", Result = 200, Category = "pos")]
+        [TestCase("IngredientGroups", 10000000, Result = 200, Category = "neg")]
+        [TestCase("IngredientGroups", null, Result = 200, Category = "neg")]
+
+        [TestCase("InstructionSections", "InstructionSection1", Result = 200, Category = "pos")]
+        [TestCase("InstructionSections", "", Result = 200, Category = "pos")]
+        [TestCase("InstructionSections", 10000000, Result = 200, Category = "neg")]
+        [TestCase("InstructionSections", null, Result = 200, Category = "neg")]
+
+        [TestCase("NutritionSpecifiedPer", 100, Result = 200, Category = "pos")]
+        [TestCase("NutritionSpecifiedPer", "NutritionSpecifiedPer 100g", Result = 200, Category = "neg")]
+        [TestCase("NutritionSpecifiedPer", "", Result = 200, Category = "pos")]
+        [TestCase("NutritionSpecifiedPer", null, Result = 200, Category = "neg")]
+
+        [TestCase("AmountInformation", 1000, Result = 200, Category = "pos")]
+        [TestCase("AmountInformation", "Amount Info", Result = 200, Category = "neg")]
+        [TestCase("AmountInformation", "", Result = 200, Category = "neg")]
+        [TestCase("AmountInformation", null, Result = 200, Category = "neg")]
+
+        [TestCase("RecommendedText", "Lorem ipsum dolor sit amet, ea qui libris animal tamquam. Cu nostrud propriae nec. Explicari vulputate te vix. Pro in aliquip denique complectitur, ad eum causae philosophia.", Result = 200, Category = "pos")]
+        [TestCase("RecommendedText", "", Result = 200, Category = "pos")]
+        [TestCase("RecommendedText", 10000000, Result = 200, Category = "neg")]
+        [TestCase("RecommendedText", null, Result = 200, Category = "neg")]
+
+        [TestCase("Tips", "Tip 1", Result = 200, Category = "pos")]
+        [TestCase("Tips", "", Result = 200, Category = "pos")]
+        [TestCase("Tips", 10000000, Result = 200, Category = "neg")]
+        [TestCase("Tips", null, Result = 200, Category = "neg")]
+
+        [TestCase("TasteSignature", "Sweet", Result = 200, Category = "pos")]
+        [TestCase("TasteSignature", "", Result = 200, Category = "pos")]
+        [TestCase("TasteSignature", 10000000, Result = 200, Category = "neg")]
+        [TestCase("TasteSignature", null, Result = 200, Category = "neg")]
+
         public int Update_RecipeTranslation_ReturnsStatusOK(string fieldName, object value)
         {
-
             var response = rRequest.UpdateRecipe(fieldName, value);
             int code = (int)response.StatusCode;
             return code;

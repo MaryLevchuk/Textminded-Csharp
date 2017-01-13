@@ -48,7 +48,7 @@ namespace Api
             var updatedTranslationJson = UpdateTranslationJson(fieldName, value);
             string strJsonContent = SetRequestBody(updatedTranslationJson);
 
-            Console.WriteLine("strJsonContent = {0}", strJsonContent);
+            //Console.WriteLine("strJsonContent = {0}", strJsonContent);
 
             SetHeaders(request);
             SetParameters(request, strJsonContent);
