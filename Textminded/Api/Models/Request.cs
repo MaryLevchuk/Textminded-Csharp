@@ -27,19 +27,25 @@ namespace Api.Models
             r.AddParameter("application/json", content, ParameterType.RequestBody);
         }
 
-        public TData GetDataFromResponse(IRestResponse r)
-        {
-            dynamic obj = JsonConvert.DeserializeObject(r.Content);
-            string tr = obj.TranslationRecipe.ToString();
-            TData translation = JsonConvert.DeserializeObject<TData>(tr);
-            return translation;
-        }
+        //public TData GetDataFromResponse(IRestResponse r)
+        //{
+        //    dynamic obj = JsonConvert.DeserializeObject(r.Content);
+        //    string tr = obj.TranslationRecipe.ToString();
+        //    TData translation = JsonConvert.DeserializeObject<TData>(tr);
+        //    return translation;
+        //}
 
-        public string SetRequestBody(RecipeTranslation t)
+        public string SetRequestBody(TData t)
         {
             string jsonString = JsonConvert.SerializeObject(t);
             return jsonString;
         }
+
+        //public TData UpdateTranslationJson(string fieldName, object value)
+        //{
+        //    Translation.GetType().GetProperty(fieldName).SetValue(Translation, value, null);
+        //    return Translation;
+        //}
     }
 
     //public class RecipeApiClient

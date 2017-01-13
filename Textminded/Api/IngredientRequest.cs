@@ -12,61 +12,51 @@ namespace Api
 {
     public class IngredientRequest : Request<IngredientTranslation>
     {
-        public IngredientTranslation ITranslation;
+       public IngredientTranslation Translation;
 
         public IngredientRequest()
         {
-            var response = GetAllIngredientsToTranslate();
-            ITranslation = GetDataFromResponse(response);
+            var response = GetIngredientToTranslateById(Constants.TestIngredientId);
+            Translation = GetDataFromResponse(response);
         }
-
-        //public string SetRequestBody(IRestRequest r)
-        //{
-        //    Translation.LongName = "updated";
-        //    string jsonString = JsonConvert.SerializeObject(Translation);
-        //    return jsonString;
-        //}
 
         public IRestResponse GetAllIngredientsToTranslate()
         {
-            IRestRequest request = new RestRequest("foodservice-fi/translation/ingredient", Method.GET);
+            IRestRequest request = new RestRequest(Constants.IngredientUrl, Method.GET);
             SetHeaders(request);
             var response = Client.Execute<List<string>>(request);
             return response;
         }
 
-        public IRestResponse GetIngredientToTranslateById()
+        public IRestResponse GetIngredientToTranslateById(object id)
         {
-            string url = "foodservice-fi/translation/ingredient/" + ITranslation.Id;
-            //Console.WriteLine(url);
+            string url = Constants.IngredientUrl + Constants.TestIngredientId;
             IRestRequest request = new RestRequest(url, Method.GET);
             SetHeaders(request);
             var response = Client.Execute(request);
             return response;
         }
 
-        public string SetRequestBody(IRestRequest r)
+        public IRestResponse UpdateIngredient(string fieldName, object value)
         {
-            ITranslation.NamePlural = "updated";
-            string jsonString = JsonConvert.SerializeObject(ITranslation);
-            return jsonString;
-        }
-
-        public IRestResponse UpdateIngredient()
-        {
-            string url = "foodservice-fi/translation/ingredient/" + ITranslation.Id;
+            string url = Constants.IngredientUrl + Translation.Id;
             IRestRequest request = new RestRequest(url, Method.POST);
+            var updatedTranslationJson = UpdateTranslationJson(fieldName, value);
+            string strJsonContent = SetRequestBody(updatedTranslationJson);
 
-            string strJsonContent = SetRequestBody(request);
+            //Console.WriteLine("strJsonContent = {0}", strJsonContent);
 
-            request.AddHeader("Accept", "application/json");
-            request.AddHeader("auth-apikey", ConfigurationManager.AppSettings["auth-apikey"]);
-
-            request.Parameters.Clear();
-            request.AddParameter("application/json", strJsonContent, ParameterType.RequestBody);
+            SetHeaders(request);
+            SetParameters(request, strJsonContent);
 
             var response = Client.Execute(request);
             return response;
+        }
+
+        public IngredientTranslation UpdateTranslationJson(string fieldName, object value)
+        {
+            Translation.GetType().GetProperty(fieldName).SetValue(Translation, value, null);
+            return Translation;
         }
     }
 }

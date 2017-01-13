@@ -11,16 +11,16 @@ namespace Api.Models
 {
     public class IngredientTranslation
     {
-        public string Id { get; set; }
-        public string NameSingular { get; set; }
-        public string NamePlural { get; set; }
-        public JArray Tags { get; set; }
+        public object Id { get; set; }
+        public object NameSingular { get; set; }
+        public object NamePlural { get; set; }
+        public object Tags { get; set; }
 
         public IngredientTranslation GetDataFromResponse(IRestResponse r)
         {
-            dynamic obj = JsonConvert.DeserializeObject(r.Content) as JArray;
-            string firstRecipe = obj.First.TranslationIngredient.ToString();
-            IngredientTranslation translation = JsonConvert.DeserializeObject<IngredientTranslation>(firstRecipe);
+            dynamic obj = JsonConvert.DeserializeObject(r.Content);
+            string tr = obj.TranslationIngredient.ToString();
+            IngredientTranslation translation = JsonConvert.DeserializeObject<IngredientTranslation>(tr);
             return translation;
         }
 

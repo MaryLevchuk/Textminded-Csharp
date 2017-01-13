@@ -28,7 +28,9 @@ namespace Api.Models
 
         public RecipeTranslation GetDataFromResponse(IRestResponse r)
         {
-            RecipeTranslation translation = JsonConvert.DeserializeObject<RecipeTranslation>(r.Content);
+            dynamic obj = JsonConvert.DeserializeObject(r.Content);
+            string tr = obj.TranslationRecipe.ToString();
+            RecipeTranslation translation = JsonConvert.DeserializeObject<RecipeTranslation>(tr);
             return translation;
         }
 

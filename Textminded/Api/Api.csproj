@@ -52,7 +52,6 @@
     <Compile Include="Constants.cs" />
     <Compile Include="IngredientRequest.cs" />
     <Compile Include="Models\IngredientTranslation.cs" />
-    <Compile Include="Models\OriginalRecipe.cs" />
     <Compile Include="Models\Recipe.cs" />
     <Compile Include="Models\Request.cs" />
     <Compile Include="RecipeRequest.cs" />
