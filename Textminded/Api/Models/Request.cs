@@ -7,13 +7,25 @@ using System.Threading.Tasks;
 using RestSharp;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using RestSharp.Newtonsoft.Json;
+using RestRequest = RestSharp.RestRequest;
 
 
 namespace Api.Models
 {
     public class Request<TData>
     {
-        public IRestClient Client = new RestClient("http://api.testrdb.arla.com");
+       public IRestClient Client = new RestClient("http://api.testrdb.arla.com");
+
+        public TData GetDataFromResponse(IRestResponse r)
+        {
+            //dynamic obj = JsonConvert.DeserializeObject(r.Content);
+            //string tr = obj.TranslationRecipe.ToString();
+            //string tr = GetTranslationPart(obj);
+            
+            var translation = JsonConvert.DeserializeObject<TData>(r.Content);
+            return translation;
+        }
 
         public void SetHeaders(IRestRequest r)
         {
@@ -26,15 +38,7 @@ namespace Api.Models
             r.Parameters.Clear();
             r.AddParameter("application/json", content, ParameterType.RequestBody);
         }
-
-        //public TData GetDataFromResponse(IRestResponse r)
-        //{
-        //    dynamic obj = JsonConvert.DeserializeObject(r.Content);
-        //    string tr = obj.TranslationRecipe.ToString();
-        //    TData translation = JsonConvert.DeserializeObject<TData>(tr);
-        //    return translation;
-        //}
-
+        
         public string SetRequestBody(TData t)
         {
             string jsonString = JsonConvert.SerializeObject(t);
@@ -96,3 +100,10 @@ namespace Api.Models
     //    public string ApiKey { get; set; } = ConfigurationManager.AppSettings["auth-apikey"];
     //}
 }
+
+//public enum RequestType
+//{
+//    Recipe = 0,
+//    Ingredient = 1,
+//    Unit = 2
+//}

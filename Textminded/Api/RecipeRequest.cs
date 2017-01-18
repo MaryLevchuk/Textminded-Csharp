@@ -10,23 +10,35 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using RestSharp;
 using System.Reflection;
+using RestSharp.Newtonsoft.Json;
+using RestRequest = RestSharp.RestRequest;
 
 
 namespace Api
 {
-    public class RecipeRequest : Request<RecipeTranslation>
+    public class RecipeRequest : Request<RecipeTranslationObject>
     {
-        public RecipeTranslation Translation;
-
+       public RecipeTranslation Translation;
+       
         public RecipeRequest()
         {
+       
             var response = GetRecipeToTranslateById(Constants.TestRecipeId);
-            Translation = GetDataFromResponse(response);
+            Translation = GetDataFromResponse(response)?.TranslationRecipe;
+        }
+
+        public IRestRequest CreateRestRequest(string url, Method method)
+        {
+            return new RestRequest(url, method)
+            {
+                JsonSerializer = new NewtonsoftJsonSerializer()
+            };
         }
 
         public IRestResponse GetAllRecipesToTranslate()
         {
-            IRestRequest request = new RestRequest("foodservice-fi/translation/recipe", Method.GET);
+            string url = "foodservice-fi/translation/recipe";
+            IRestRequest request = CreateRestRequest(url, Method.GET);
             SetHeaders(request);
             var response = Client.Execute<List<string>>(request);
             return response;
@@ -35,7 +47,7 @@ namespace Api
         public IRestResponse GetRecipeToTranslateById(object id)
         {
             string url = "foodservice-fi/translation/recipe/" + id.ToString();
-            IRestRequest request = new RestRequest(url, Method.GET);
+            IRestRequest request = CreateRestRequest(url, Method.GET);
             SetHeaders(request);
             var response = Client.Execute(request);
             return response;
@@ -44,11 +56,9 @@ namespace Api
         public IRestResponse UpdateRecipe(string fieldName, object value)
         {
             string url = "foodservice-fi/translation/recipe/" + Translation.Id;
-            IRestRequest request = new RestRequest(url, Method.POST);
+            IRestRequest request = CreateRestRequest(url, Method.POST);
             var updatedTranslationJson = UpdateTranslationJson(fieldName, value);
             string strJsonContent = SetRequestBody(updatedTranslationJson);
-
-            //Console.WriteLine("strJsonContent = {0}", strJsonContent);
 
             SetHeaders(request);
             SetParameters(request, strJsonContent);
@@ -57,10 +67,13 @@ namespace Api
             return response;
         }
 
-        public RecipeTranslation UpdateTranslationJson(string fieldName, object value)
+        public RecipeTranslationObject UpdateTranslationJson(string fieldName, object value)
         {
             Translation.GetType().GetProperty(fieldName).SetValue(Translation, value, null);
-            return Translation;
+            return new RecipeTranslationObject
+            {
+                TranslationRecipe = Translation
+            };
         }
     }
 }

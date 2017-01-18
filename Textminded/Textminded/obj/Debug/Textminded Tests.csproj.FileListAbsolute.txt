@@ -36,3 +36,4 @@ K:\Source\textminded\Textminded\Textminded\bin\Debug\FluentAssertions.pdb
 K:\Source\textminded\Textminded\Textminded\bin\Debug\FluentAssertions.xml
 K:\Source\textminded\Textminded\Textminded\bin\Debug\FluentAssertions.Core.pdb
 K:\Source\textminded\Textminded\Textminded\bin\Debug\FluentAssertions.Core.xml
+K:\Source\textminded\Textminded\Textminded\bin\Debug\RestSharp.Newtonsoft.Json.dll

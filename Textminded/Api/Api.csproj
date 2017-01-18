@@ -34,8 +34,13 @@
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="RestSharp">
-      <HintPath>..\Textminded\bin\Debug\RestSharp.dll</HintPath>
+    <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.105.2.3\lib\net452\RestSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="RestSharp.Newtonsoft.Json, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.Newtonsoft.Json.1.0.0\lib\net45\RestSharp.Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
@@ -52,13 +57,16 @@
     <Compile Include="Constants.cs" />
     <Compile Include="IngredientRequest.cs" />
     <Compile Include="Models\IngredientTranslation.cs" />
+    <Compile Include="Models\IngredientTranslationObject.cs" />
     <Compile Include="Models\Recipe.cs" />
+    <Compile Include="Models\RecipeTranslationObject.cs" />
     <Compile Include="Models\Request.cs" />
     <Compile Include="RecipeRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\RecipeTranslation.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

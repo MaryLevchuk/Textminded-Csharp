@@ -17,6 +17,7 @@ namespace Textminded
         RecipeRequest rRequest = new RecipeRequest();
         public RecipeTranslation Translation;
         
+        
         [Test]
         public void GetAllRecipesToTranslate_ReturnsStatusOK()
         {

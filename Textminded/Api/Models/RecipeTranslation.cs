@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using RestSharp;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 
 namespace Api.Models
@@ -28,10 +29,8 @@ namespace Api.Models
 
         public RecipeTranslation GetDataFromResponse(IRestResponse r)
         {
-            dynamic obj = JsonConvert.DeserializeObject(r.Content);
-            string tr = obj.TranslationRecipe.ToString();
-            RecipeTranslation translation = JsonConvert.DeserializeObject<RecipeTranslation>(tr);
-            return translation;
+           RecipeTranslation translation = JsonConvert.DeserializeObject<RecipeTranslation>(r.Content);
+           return translation;
         }
 
     }

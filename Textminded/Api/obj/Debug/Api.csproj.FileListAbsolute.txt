@@ -6,3 +6,6 @@ K:\Source\textminded\Textminded\Api\obj\Debug\Api.pdb
 K:\Source\textminded\Textminded\Api\bin\Debug\Newtonsoft.Json.dll
 K:\Source\textminded\Textminded\Api\bin\Debug\Newtonsoft.Json.xml
 K:\Source\textminded\Textminded\Api\obj\Debug\Api.csprojResolveAssemblyReference.cache
+K:\Source\textminded\Textminded\Api\bin\Debug\Api.dll.config
+K:\Source\textminded\Textminded\Api\bin\Debug\RestSharp.Newtonsoft.Json.dll
+K:\Source\textminded\Textminded\Api\bin\Debug\RestSharp.xml
