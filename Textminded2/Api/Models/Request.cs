@@ -13,14 +13,9 @@ namespace Api.Models
     public class Request
     {
         public IRestRequest RestRequest = new RestRequest();
-        public string Url { get; set; }
-        public Method Meth { get; set; }
-
         public Request(string url, Method method)
         {
-
             RestRequest.JsonSerializer = new NewtonsoftJsonSerializer();
-            
         }
 
        

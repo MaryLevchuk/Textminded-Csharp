@@ -55,6 +55,8 @@
     <Compile Include="Class1.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Models\Client.cs" />
+    <Compile Include="Models\RecipeTranslation.cs" />
+    <Compile Include="Models\RecipeTranslationObject.cs" />
     <Compile Include="Models\Request.cs" />
     <Compile Include="Models\Response.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
